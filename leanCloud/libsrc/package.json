@@ -1,0 +1,15 @@
+{
+	"name": "egret",
+	"version": "3.0.1",
+	"modules": [
+		{
+			"name": "leanCloud",
+			"description": "leanCloud",
+			"files": [
+				"av.js",
+				"av.d.ts"
+			],
+			"root": "src"
+		}
+	]
+}
