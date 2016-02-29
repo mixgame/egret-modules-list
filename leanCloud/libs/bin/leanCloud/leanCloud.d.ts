@@ -1,3 +1,4 @@
+
 declare module AV {
     interface cbFunc {
         success?:Function;
@@ -127,5 +128,33 @@ declare module AV {
         //取消关注
         unsubscribe(channels:Array<string>,func:Function);
 
+    }
+
+    /*
+    leancloud 统计类 analytics.js
+     */
+    //初始化时的注册参数
+    interface analyticsInitObj {
+        appId:string;
+        appKey:string;
+        version:string; //当前版本号
+        channel:string; //当前渠道
+    }
+
+    //发送自定义事件的参数
+    interface analyticsSendObj {
+        event:string;
+
+        attr?:any;      //传入的数据对象
+
+        duration?:number; ///持续事件 毫秒
+    }
+
+    function analytics(obj:analyticsInitObj):AV.analyticsOnly;
+
+    class analyticsOnly {
+        //发送统计数据
+        send(obj:analyticsSendObj,callBack?:(result?)=>void);
+        send(arr:Array<analyticsSendObj>,callBack?:(result?)=>void);
     }
 }
